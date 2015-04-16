@@ -22,7 +22,6 @@
 		add_task();// calling the add task function
 //telling it to get the forum thru $post and send it to add task and it will give comfermation 
 		function add_task(){
-
 			$('.add-new-task').submit(function() {
 				var new_task = $('.add-new-task input[name=new-task]').val();
 
