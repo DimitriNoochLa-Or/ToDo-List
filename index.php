@@ -8,8 +8,26 @@
 		<div class="wrap">
 			<div class="task-list">
 			 		<ul>
-			 			<?php require("includes/connect.php") ?> 
-			 			<!-- call this function -->
+			 			<?php require("includes/connect.php");
+			 			// <!-- call this file -->
+			 			$mysqli = new mysqli('locahost', 'root' , 'root', 'todo');
+			 			$query = "SELECT * FROM todo ORDER BY date ASC, time ASC";
+			 			if ($result = $mysqli->query($query)) {//if result equals 
+			 				//the information from result to go to num_rows
+			 				$numrows = $result->num_rows:
+			 				if ($num_rows>0) {//if num rows is greater then 0 it does the if statement
+			 					while($row = $result->fecth_assoc()){
+			 						$task_id = $row['id'];
+			 						$task_name = $row['task'];
+
+
+			 					 echo "<li>
+			 					 <span>'.$task_name'
+			 					 ";
+			 					}
+			 				}
+			 			}
+			 			?> 
 			 		</ul>
 			</div>
 		<form class="add-new-task" autocomplete="off">
@@ -41,11 +59,11 @@
 			var task_id = $(this).attr('id');
 
 			$.post('includes/delete-task.php', {id: task_id}, function(){
-			current_element.parent().fadeOut("fast" , function(){
+				current_element.parent().fadeOut("fast" , function(){
 				$(this).remove();
+				});
 			});
 		});
-	});
 
 	</script>
 
