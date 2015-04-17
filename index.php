@@ -8,25 +8,27 @@
 
 </head>	
 <body>
+
 		<div class="wrap">
+		<div class="header"> TO-DO LIST:</div>
 			<div class="task-list">
 			 		<ul>
 			 			<?php require("includes/connect.php");
 			 			// <!-- call this file -->
-			 			$mysqli = new mysqli('locahost', 'root' , 'root', 'todo');
-			 			$query = "SELECT * FROM todo ORDER BY date ASC, time ASC";
+			 			$mysqli = new mysqli('localhost', 'root' , 'root', 'todo');
+			 			$query = "SELECT * FROM tasks ORDER BY date ASC, time ASC";
 			 			if ($result = $mysqli->query($query)) {//if result equals 
 			 				//the information from result to go to num_rows
 			 				$numrows = $result->num_rows;
-			 				if ($num_rows>0) {//if num rows is greater then 0 it does the if statement
-			 					while($row = $result->fecth_assoc()){
+			 				if ($numrows>0) {//if num rows is greater then 0 it does the if statement
+			 					while($row = $result->fetch_assoc()){
 			 						$task_id = $row['id'];
 			 						$task_name = $row['task'];
 
 			 						//need single qoutes becuz we are using double inside
 			 					 echo '<li>
 			 					 <span>'.$task_name. '</span>
-			 					 <img id="'.$task_id.'" class="delete-button" width="10px" src="images/close.svg"/>
+			 					 <img id="'.$task_id.'" class="delete-button lengthbutton" width="10px" src="images/close.svg"/>
 								 </li>';
 			 					}
 			 				}
@@ -40,6 +42,8 @@
 		</div>
 </body>
 	<script scr="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 	
 	<script>
 			add_task();  

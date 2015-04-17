@@ -1,10 +1,11 @@
 @import "reset.css";
 @import "normalize.css";
+@import "<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>";
 
 body{
 	font: normal 14px, arial;
 	color: #999;
-	background: #f1f1f1;
+	background: gray;
 }
 
 .wrap{
@@ -17,11 +18,22 @@ body{
 	min-height: 300px;
 	background: #fff;
 	box-shadow: 2px 2px 0px #ddd;
-	margin-top: 40%;
+	margin-top: 5%;
 	padding: 22px 6%;
 }
 .tasklength{
 	margin-top: 20px;
 	width: 100%;
 	height:	50px ;
+}
+
+.lengthbutton{
+	margin: 0 auto;
+	display: inline-block;
+}
+.header{
+	font-size: 30px;
+	font-family: 'Indie Flower', cursive;
+	margin-top:30%;
+	color: white;
 }
