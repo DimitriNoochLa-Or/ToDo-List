@@ -3,6 +3,10 @@
 <head>
 		<title> Simple To-Do List </title>
 		<link rel="stylesheet" type="text/css" href="css/main.css">	
+		<link rel="stylesheet" type="text/css" href="css/normalize.css">	
+		<link rel="stylesheet" type="text/css" href="css/reset.css">	
+
+
 </head>	
 <body>
 		<div class="wrap">
@@ -14,7 +18,7 @@
 			 			$query = "SELECT * FROM todo ORDER BY date ASC, time ASC";
 			 			if ($result = $mysqli->query($query)) {//if result equals 
 			 				//the information from result to go to num_rows
-			 				$numrows = $result->num_rows:
+			 				$numrows = $result->num_rows;
 			 				if ($num_rows>0) {//if num rows is greater then 0 it does the if statement
 			 					while($row = $result->fecth_assoc()){
 			 						$task_id = $row['id'];
@@ -37,8 +41,10 @@
 		</div>
 </body>
 	<script scr="http://code.jquery.com/jquery-latest.min.js"></script>
+	
 	<script>
-		add_task();// calling the add task function
+			add_task();  
+// calling the add task function 
 //telling it to get the forum thru $post and send it to add task and it will give comfermation 
 		function add_task(){
 			$('.add-new-task').submit(function() {
